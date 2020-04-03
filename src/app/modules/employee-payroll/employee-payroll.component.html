@@ -1,0 +1,54 @@
+<div class="search-div">
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()" />
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <!-- Table section-->
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="80">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <!-- Employee ID Column -->
+          <ng-container matColumnDef="employee_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</th>
+            <td *matCellDef="let element">{{ element.employee_id }}</td>
+          </ng-container>
+          <!-- File URL Column -->
+          <ng-container class="file_title" matColumnDef="file_title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> File Title</th>
+            <td mat-cell *matCellDef="let element">{{ element.file_title }}</td>
+          </ng-container>
+          <!-- Updated By Column -->
+          <ng-container matColumnDef="file_URL">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>File URL</th>
+            <td mat cell *matCellDef="let element"><a href="{{ element.file_URL }}" target="_blank">Link To Download</a></td>
+          </ng-container>
+          <!-- Updated By Column -->
+          <ng-container matColumnDef="uploaded_at">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Uploaded At</th>
+            <td mat cell *matCellDef="let element">{{ element.uploaded_at }}</td>
+          </ng-container>
+          <ng-container matColumnDef="save">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td *matCellDef="let element">
+                <a href="{{element.file_URL}}"
+                    target="_blank">
+                    <button mat-raised-button
+                    color="warn">
+                    <mat-icon>save_alt</mat-icon>Save
+                    </button>      
+                </a>
+            </td>
+          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columns_to_display"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns_to_display;"></tr>
+        </table>
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+  

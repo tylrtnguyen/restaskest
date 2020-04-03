@@ -1,0 +1,79 @@
+<!-- search Bar and Create button-->
+<div class="search-div">
+  <button mat-raised-button color="warn"
+  (click)="onCreate()">
+    <mat-icon>add</mat-icon>Create
+  </button>
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()" />
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<!-- Table section-->
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+  <div fxFlex="80">
+    <div class="mat-elevation-z8">
+      <table mat-table matSort [dataSource]="dataSource">
+        <!-- First Name Column -->
+        <ng-container matColumnDef="fName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+          <td *matCellDef="let element">{{ element.fName }}</td>
+        </ng-container>
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="lName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.lName }}</td>
+        </ng-container>
+        <!-- Address Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+          <td mat cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+        <!-- JoinDate -->
+        <ng-container matColumnDef="JoinDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Hired Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.JoinDate }}</td>
+        </ng-container>
+        <!-- Date of Birth-->
+        <ng-container matColumnDef="DOB">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>DOB</th>
+          <td mat-cell *matCellDef="let element">{{ element.DOB }}</td>
+        </ng-container>
+        <!-- Department -->
+        <ng-container matColumnDef="department">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Department</th>
+          <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+        </ng-container>
+        <!-- Wages Column -->
+        <ng-container matColumnDef="wages">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Wages</th>
+          <td mat-cell *matCellDef="let element">${{ element.wages }}</td>
+        </ng-container>
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td *matCellDef="let element">
+            <button mat-icon-button
+            (click)=onUpdate(element)>
+              <mat-icon>launch</mat-icon>
+            </button>
+            <button mat-icon-button color="warn"
+            (click)=onDelete(element._id)>
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+          <tr mat-header-row *matHeaderRowDef="columns_to_display"></tr>
+          <tr mat-row *matRowDef="let row; columns: columns_to_display;"></tr>
+      </table>
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" [showFirstLastButtons]="true">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

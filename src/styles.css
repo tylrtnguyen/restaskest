@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Snack bar custom */
+snack-bar-container.success {
+    background-color: #D9FFF4;
+    color: #17A673  ;
+} 
+
+snack-bar-container.warn {
+    background-color: #FC8660;
+    color : #fff;
+}
+
+snack-bar-container.notification simple-snack-bar {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+/* Custom Confirm Dialog */
+.btn-dialog-close{
+    width: 45px;
+    min-width: 0px !important;
+    height: 40px;
+    padding: 0px !important;
+  }
+
+   /* mat-confirm-dialog (customised dialog) */
+.confirm-dialog-container .mat-dialog-container {
+    border-radius: .25em .25em .4em .4em;
+    padding: 0px;
+}
+.confirm-dialog-container .content-container{
+    margin: 5px 5px 15px 5px;
+    color: #526291;
+    display: flex;
+}
+.confirm-dialog-container #close-icon{
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+}
+.confirm-dialog-container #close-icon:hover{
+cursor: pointer;
+}
+
+.confirm-dialog-container #button-no{
+    height: 50px;
+    width: 50%;
+    background-color: #fb7448;
+    color:white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-container #button-yes{
+    height: 50px;
+    width: 50%;
+    background-color: #c3d9e0;
+    color:white;
+    border-radius: 0px;
+}
+
+.confirm-dialog-container span.content-span{
+    padding:  35px 16px;
+    text-align: center;
+    font-size: 20px;
+}
+

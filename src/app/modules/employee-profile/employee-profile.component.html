@@ -1,0 +1,83 @@
+
+  <mat-toolbar>
+    <h1>Employee Profile</h1>
+  </mat-toolbar>
+  <form [formGroup]="service.formControl" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="400px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="_id">
+          <!-- First Name field -->
+          <mat-form-field>
+            <input formControlName="fName" matInput placeholder="First Name">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <!-- Last Name field -->
+          <mat-form-field>
+            <input formControlName="lName" matInput placeholder="Last Name">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <!-- Email Section-->
+          <mat-form-field>
+            <input formControlName="email" matInput placeholder="Email">
+            <mat-error>Please enter a valid email address.</mat-error>
+          </mat-form-field>
+          <!-- Password Section -->
+          <mat-form-field>
+            <input formControlName="password" type="password" matInput placeholder="Password">
+            <mat-hint>Min 8 characters | At least 1 uppercase letter | At least 1 digit</mat-hint>
+            <mat-error *ngIf="service.formControl.controls['password'].hasError('required')">This field is mandatory
+            </mat-error>
+            <mat-error *ngIf="service.formControl.controls['password'].hasError('minlength')">Password must be at least 8
+              Character</mat-error>
+          </mat-form-field>
+          <!-- Address Section -->
+          <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <!-- Wages -->
+          <mat-form-field>
+            <input formControlName="wages" matInput placeholder="Wages in CAD" readonly>
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <!-- Gender Section-->
+          <div class="add-bottom-padding">
+            <mat-radio-group formControlName="gender">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+              <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <!--Department Section -->
+          <mat-form-field>
+            <mat-select disabled formControlName="department" placeholder="Department">
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let department of departments">
+                <mat-option [value]="department.name">{{department.name}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <!--DOB Section-->
+          <mat-form-field>
+            <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of Birth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!--isPermanent section -->
+          <div class="add-bottom-padding">
+            <mat-checkbox disabled formControlName="isPermanent">Permanent Employee</mat-checkbox>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" (click)="onSubmit()"
+              [disabled]="service.formControl.invalid">Submit</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  

@@ -1,0 +1,42 @@
+<mat-toolbar>
+    <span>{{service.formControl.controls['_id'].value?"Modify Material":"New Material"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form [formGroup]="service.formControl" class="normal-form">
+      <mat-grid-list cols="2" rowHeight="400px">
+        <mat-grid-tile>
+          <div class="controles-container">
+           <!--Image-->
+           <img class="profile-img" src="https://www.itarian.com/assets-new/images/inventory-management.png">
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="controles-container">
+              <!-- Material Name-->
+             <mat-form-field>
+                <input formControlName="name" matInput placeholder="Material Name">
+                <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+            <!-- Material Quantity-->
+            <mat-form-field>
+                <input formControlName="quantity" matInput placeholder="Quantity">
+                <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+            <!-- Stock Status -->
+            <div class="add-bottom-padding">
+              <mat-radio-group formControlName="stockStatus">
+                <mat-radio-button value="Good">Good</mat-radio-button>
+                <mat-radio-button value="Bad">Bad</mat-radio-button>
+                <mat-radio-button value="Normal">Normal</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            
+            <div class="button-row">
+              <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="service.formControl.invalid">Submit</button>
+              <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>

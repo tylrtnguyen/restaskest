@@ -1,0 +1,55 @@
+<mat-toolbar>
+  <span>{{service.formControl.controls['id'].value?"Modify Shift":"New Shift"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="service.formControl" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <!--Image-->
+        <img class="profile-img"
+          src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_768/https://aidspace.io/wp-content/uploads/2019/06/how-to-plan-the-volunteer-schedule-768x466.png">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input hidden formControlName="id">
+        <input hidden formControlName="shiftId">
+        <!-- Date-->
+        <mat-form-field>
+          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Shift Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <!-- Employee Name -->
+        <mat-form-field>
+          <mat-select formControlName="employeeId" placeholder="Employee">
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let employee of employeeList">
+              <mat-option [value]="employee._id">{{employee.fName}} {{employee.lName}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <!-- Start -->
+        <mat-form-field>
+          <input formControlName="start" matInput placeholder="Start">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <!-- Start -->
+        <mat-form-field>
+          <input formControlName="stop" matInput placeholder="Stop">
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button mat-raised-button color="primary" (click)="onSubmit()"
+            [disabled]="service.formControl.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

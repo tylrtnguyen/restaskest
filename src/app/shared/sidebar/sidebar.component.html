@@ -1,0 +1,37 @@
+<mat-nav-list class="nav-list">
+  <mat-divider></mat-divider>
+  <!-- Manager Section -->
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard">
+    <mat-icon>dashboard</mat-icon>Dashboard
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard/schedule">
+    <mat-icon>receipt</mat-icon>Schedule
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard/employee">
+    <mat-icon> person_pin</mat-icon>Employee
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard/inventory">
+    <mat-icon>assignment</mat-icon>Inventory
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard/timeclock">
+    <mat-icon>access_time</mat-icon>Time Clock
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="isManager" routerLink="/dashboard/payroll">
+    <mat-icon>payment</mat-icon>Payroll
+  </a>
+  <!-- Employee Section -->
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="!isManager" routerLink="/employee/dashboard">
+    <mat-icon>dashboard</mat-icon>Dashboard
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="!isManager" routerLink="/employee/dashboard/schedule">
+    <mat-icon>receipt</mat-icon>Schedule
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="!isManager" routerLink="/employee/dashboard/inventory">
+    <mat-icon>assignment</mat-icon>Inventory
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" *ngIf="!isManager" routerLink="/employee/dashboard/payroll">
+    <mat-icon> attach_money</mat-icon>Payroll
+  </a>
+
+  <mat-divider></mat-divider>
+</mat-nav-list>

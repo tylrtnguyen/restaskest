@@ -1,0 +1,51 @@
+<mat-toolbar>
+    <span>Send Payroll To Employee</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  <form [formGroup]="payrollService.formControl" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="400px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <!--Image-->
+          <img class="profile-img"
+            src="https://s3.amazonaws.com/questoracle-staging/wordpress/uploads/2019/06/03113508/Payroll.jpg">
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input hidden formControlName="id">
+          <!-- Employee Name -->
+          <mat-form-field>
+            <mat-select formControlName="employee_id" placeholder="Employee">
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let employee of employeeList">
+                <mat-option [value]="employee._id">{{employee.fName}} {{employee.lName}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <!-- Start -->
+          <mat-form-field>
+            <input formControlName="file_title" matInput placeholder="File Title">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <!-- Start -->
+          <mat-form-field>
+            <input formControlName="file_URL" matInput placeholder="File URL">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <!-- Start -->
+          <mat-form-field>
+            <input disabled formControlName="uploaded_at" matInput placeholder="Uploaded At">
+          </mat-form-field>
+          <div class="button-row">
+            <button mat-raised-button color="primary" (click)="onSubmit()"
+              [disabled]="payrollService.formControl.invalid">Submit</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+  

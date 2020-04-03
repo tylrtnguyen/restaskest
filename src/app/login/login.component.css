@@ -1,0 +1,35 @@
+.login-page {
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  mat-card {
+    width: 30%;
+    margin: 5% auto;
+    border-radius: 5px;
+    text-align: center;
+  }
+  mat-form-field, mat-checkbox {
+    width: 70%;
+    display: block;
+    margin: auto;
+  }
+  mat-card-content {
+    margin-top: 15px;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+    background-color: #3B4A6B;
+  }
+
+  img {
+      width: 300px;
+      height: 300px;
+  }
+  
+  

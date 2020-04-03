@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+  <div class="work-log-container" fxFlex="60">
+    <div fxLayout="column">
+      <mat-card>
+        <div class="work-log">
+          <div fxFlex="50">
+            <h1>Work Log</h1>
+            <h2>{{date}}</h2>
+            <h1 class="stopwatch">Total: {{totalWorkHour.seconds}} seconds </h1>
+            <p>Your total work hours for today's shift</p>
+            <button class="main-button" mat-raised-button [color]="buttonColor" (click)="changeStatus()">
+              {{buttonName}}
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+          <div fxFlex="50">
+            <h2>Clock in time</h2>
+            <h1 class="clockin-time">{{clockInTime}}</h1>
+            <h2>Clock out time</h2>
+            <h1 class="clockout-time">{{clockOutTime}}</h1>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div class="card-container" fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-card fxFlex="30">
+    <img src="../../../assets/hourglass.png">
+    <mat-card-title id="mon-title">Work Hours</mat-card-title>
+    <mat-card-title>32</mat-card-title>
+  </mat-card>
+  <mat-card fxFlex="30">
+    <img src="../../../assets/attach_money.png">
+    <mat-card-title id="inv-status-title">Money Earned</mat-card-title>
+    <mat-card-title id="inv-status">$640</mat-card-title>
+  </mat-card>
+  <div fxFlex="30">
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div class="upcoming-shift-container" fxLayout="row">
+  <div class="upcoming-shift" fxFlex="60">
+    <mat-card>
+      <h1 class="shift-tile">Upcoming Shift</h1>
+      <mat-divider></mat-divider>
+      <h2>Date: {{employeeShift.date}}  </h2>
+      <h2>Time: {{employeeShift.start}}:00 - {{employeeShift.stop}}:00</h2>
+      <h2>Duration: {{employeeShift.stop - employeeShift.start}} Hours</h2>
+      <h2>Expected Earning: {{(employeeShift.stop - employeeShift.start)*employeeShift.wages | currency}}</h2>
+    </mat-card>
+  </div>
+</div>

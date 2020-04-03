@@ -1,0 +1,83 @@
+<div class="container"
+     fxLayout="row"
+     fxLayoutAlign="space-between">
+  <div class="item item-1" fxFlex="20"></div>
+  <div class="item item-3" fxFlex="40">
+<div class="title">
+    <h1>Manager Profile</h1>
+</div>
+<form [formGroup]="managerService.formControl" class="normal-form">     
+     <mat-grid-list cols="2" rowHeight="400px">
+         <!-- Image Tile -->
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input hidden formControlName="date">
+                <input hidden formControlName="__v">
+                <img class="profile-img" src="https://www.decentfashion.in/wp-content/uploads/2018/12/facebook-profile-images-78.gif">
+                <!-- First Name field -->
+                <mat-form-field>
+                    <input formControlName="fName" matInput placeholder="First Name">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <!-- Last Name Field -->
+                <mat-form-field>
+                    <input formControlName="lName" matInput placeholder="Last Name">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <!-- Info Tile -->
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="_id">
+                <!-- Address Field -->
+                <mat-form-field>
+                    <input formControlName="address" matInput placeholder="Address">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <!-- DOB -->
+                <mat-form-field>
+                    <input formControlName="DOB" matInput [matDatepicker]="picker" placeholder="Date of Birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <!--restaurant-->
+                <mat-form-field>
+                    <mat-select formControlName="restaurants" placeholder="Restaurant">
+                      <mat-option>None</mat-option>
+                      <ng-container *ngFor="let restaurant of restaurants">
+                        <mat-option [value]="restaurant.name">{{restaurant.name}}</mat-option>
+                      </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <!-- Salary -->
+                <mat-form-field>
+                    <input formControlName="salary" matInput placeholder="Salary" readonly>
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <!--Email-->
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field>
+                <!--Email-->
+                <mat-form-field>
+                    <input formControlName="password" type="password" matInput placeholder="Password">
+                    <mat-hint>Min 8 characters | At least 1 uppercase letter | At least 1 digit</mat-hint>
+                    <mat-error *ngIf="managerService.formControl.controls['password'].hasError('required')">This field is mandatory</mat-error>
+                    <mat-error *ngIf="managerService.formControl.controls['password'].hasError('minlength')">Password must be at least 8 Character</mat-error>
+                </mat-form-field>
+            </div> 
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+      <div class="button-row">
+        <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="managerService.formControl.invalid">Submit</button>
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+     </div>
+    </form>
+  </div>
+  <div class="item item-2" fxFlex="40" fxFlexOrder="3">
+    
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <span>Upload Employee Payroll</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<div>
+
+    <div *ngIf="currentFileUpload" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%</div>
+      </div>
+       
+      <label class="btn btn-default">
+        <input type="file" (change)="selectFile($event)">
+      </label>
+      <button mat-raised-button color="warn" class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>

@@ -1,0 +1,46 @@
+div .card-container {
+    margin: 10px 10px;
+}
+
+mat-card{
+    text-align: center;
+}
+
+mat-card mat-card-title {
+    padding: 10px;
+}
+
+/*#4bd3a2*/
+.mat-card #an-title {
+    color: #5679E0
+}
+
+.mat-card #inv-status-title {
+    color: #F8D06B
+}
+
+.mat-card  #inv-status {
+    color: #35CE97
+}
+
+.mat-card #mon-title {
+    color: #3DBBCD
+}
+
+.mat-card #noe-title {
+    color: #3B4A6B
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-top: 15px
+}

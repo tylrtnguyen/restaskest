@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+  
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+.button-row button {
+  margin: 5px;
+}
+
+form .normal-form{
+  margin: 10px;
+}
+
+.button-export {
+  float: right;
+  margin: 20px;
+}

@@ -1,0 +1,80 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+      <img src="../../assets/logo_transparent.png" />
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+        <!-- Manager/Owner Login section-->
+        <mat-tab label="Manager/Owner">
+            <mat-card-content>
+              <form class="example-form">
+                <mat-form-field>
+                  <input matInput placeholder="Email" [formControl]="managerEmailFormControl" [errorStateMatcher]="matcher" #managerEmail/>
+                    <mat-error *ngIf="
+                            managerEmailFormControl.hasError('email') &&
+                            !managerEmailFormControl.hasError('required')
+                          ">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="managerEmailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" 
+                  [formControl]="managerPasswordFormControl" [errorStateMatcher]="matcher" #managerPassword />
+                    <mat-hint>Min 8 characters | At least 1 uppercase letter | At least 1 digit</mat-hint>
+                    <mat-error *ngIf="managerPasswordFormControl.hasError('required')">
+                      Password is <strong>required</strong>
+                    </mat-error>
+                  <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="login-button" 
+                        (click)="managerLogin(managerEmail.value, managerPassword.value)"
+                        [disabled]="managerEmailFormControl.hasError('required')"
+                        *ngIf="!isLoading">
+                    Sign In
+                </button>
+                <mat-spinner *ngIf="isLoading"></mat-spinner>
+              </form>
+            </mat-card-content>
+        </mat-tab>
+        <!-- Employee Login section-->
+        <mat-tab label="Employee">
+          <mat-card-content>
+            <form class="example-form">
+              <mat-form-field>
+                <input matInput placeholder="Email" [formControl]="employeeEmailFormControl" 
+                [errorStateMatcher]="matcher" #employeeEmail/>
+                  <mat-error *ngIf="
+                          employeeEmailFormControl.hasError('email') &&
+                          !employeeEmailFormControl.hasError('required')
+                        ">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="employeeEmailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" 
+                [formControl]="employeePasswordFormControl" [errorStateMatcher]="matcher" #employeePassword />
+                  <mat-hint>Min 8 characters | At least 1 uppercase letter | At least 1 digit</mat-hint>
+                  <mat-error *ngIf="employeePasswordFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+              <button mat-raised-button color="primary" class="login-button"
+                      (click)="employeeLogin(employeeEmail.value, employeePassword.value)"
+                      [disabled]="employeeEmailFormControl.hasError('required')"
+                      *ngIf="!isLoading">
+                  Sign In
+              </button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+            </form>
+          </mat-card-content>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+</div>

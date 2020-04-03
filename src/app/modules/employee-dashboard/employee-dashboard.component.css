@@ -1,0 +1,29 @@
+.work-log-container {
+    border-radius: 1%;
+}
+
+.card-container {
+    text-align: center;
+    margin: 10px 10px;
+}
+
+.stopwatch {
+    color: #17A673
+}
+
+.clockin-time {
+    color: #FC8660
+}
+
+.clockout-time{
+    color: #FCBB47
+} 
+
+.shift-tile {
+    color: #2C9FAF
+}
+
+.main-button {
+    width: 250px !important;
+    height: 40px !important;
+}
