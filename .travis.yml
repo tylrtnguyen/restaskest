@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+    - "stable"
+cache: npm
+
+before_install:
+    - "npm config set spin false"
+    - npm i -g now
+install:
+    # Install the project dependencies
+    - npm install
+script:
+    - npm run build
+deploy:
+    - provider: script
+    - script: bash script/deploy.sh
+    - skip_cleanup: true
