@@ -9,8 +9,7 @@ import { AuthData } from "../models/auth-data/auth-data.model";
 })
 export class AuthenticationService {
 
-  // SERVER = "https://restaskest-api.herokuapp.com";
-  SERVER = "http://localhost:5000";
+  SERVER = "https://restaskest-api.herokuapp.com";
   private token: string;
   private userId: string;
   private isAuthenticated = false;
