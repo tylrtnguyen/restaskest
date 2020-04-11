@@ -1,6 +1,7 @@
 {
   "name": "restaskest",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author":"Plus84 Team",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

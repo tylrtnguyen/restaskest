@@ -16,8 +16,7 @@ import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
 export class PayrollService {
   constructor(private http: HttpClient) {}
 
-  PRODUCTION_SERVER = "https://restaskest84.appspot.com";
-  DEVELOPMENT_SERVER = "http://localhost:5000/api/payroll";
+  SERVER = "https://restaskest-api.herokuapp.com/api/payroll";
   token = localStorage.getItem('token');
 
 
@@ -45,7 +44,7 @@ export class PayrollService {
   }
 
   sendToEmployee(payroll) {
-    return this.http.put(`${this.DEVELOPMENT_SERVER}/${payroll._id}`, payroll,
+    return this.http.put(`${this.SERVER}/${payroll._id}`, payroll,
       {
         headers: new HttpHeaders().set("Authorization", `Bearer ${this.token}`)
                                   .set("Content-Type", "application/json")
@@ -57,7 +56,7 @@ export class PayrollService {
  
     formdata.append('file', file);
  
-    const req = new HttpRequest('POST', `${this.DEVELOPMENT_SERVER}/upload`, formdata, {
+    const req = new HttpRequest('POST', `${this.SERVER}/upload`, formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -66,14 +65,14 @@ export class PayrollService {
   }
  
   getFiles(): Observable<any> {
-    return this.http.get(`${this.DEVELOPMENT_SERVER}/all`, {
+    return this.http.get(`${this.SERVER}/all`, {
       headers: new HttpHeaders()
                    .set('Authorization', `Bearer ${this.token}`)
     });
   }
 
   getPayrollByEmpId(id) {
-    return this.http.get(`${this.DEVELOPMENT_SERVER}/emp/${id}`, {
+    return this.http.get(`${this.SERVER}/emp/${id}`, {
       headers: new HttpHeaders()
                    .set('Authorization', `Bearer ${this.token}`)
     })
