@@ -1,7 +1,8 @@
 <p align="center">
     <img src="./assets/restaskest.png" alt="Restaskest Logo">
 </p>
-<h2>ResTaskest: Restaurant Tasks Done Fastest</h2>
+<h2 align="center">ResTaskest: Restaurant Tasks Done Fastest</h2>
+<h3>Our API live <a href="https://github.com/tylrtnguyen/restaskest-rest-api" target="_blank">here</a></h3>
 
 ### Team: Plus 84
 | Team Member | Role |
