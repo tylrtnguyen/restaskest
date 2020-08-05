@@ -1,7 +1,11 @@
 <p align="center">
     <img src="./assets/restaskest.png" alt="Restaskest Logo">
 </p>
-<h2 align="center">ResTaskest: Restaurant Tasks Done Fastest</h2>
+<p align="center">
+    <a href="https://app.netlify.com/sites/restaskest/deploys" target="_blank" />
+    <img src="https://api.netlify.com/api/v1/badges/6d0e86da-8c7f-468e-8520-110cf5fcedfd/deploy-status" alt="deploy status" />
+</p>
+<h1 align="center">ResTaskest: Restaurant Tasks Done Fastest</h1>
 <h3>Our API live <a href="https://github.com/tylrtnguyen/restaskest-rest-api" target="_blank">here</a></h3>
 
 ### Team: Plus 84
@@ -14,7 +18,6 @@
 
 ## :wrench: Built with
 - [Angular.js](https://angular.io/)
-- [MongoDB](https://www.mongodb.com/)
 - [Angular Meterial UI](https://material.angular.io/)
 - [Moment.js](https://momentjs.com/)
 - [Highcharts.js](https://www.highcharts.com/)
