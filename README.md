@@ -8,6 +8,15 @@
 <h1 align="center">ResTaskest: Restaurant Tasks Done Fastest</h1>
 <h3>Our API live <a href="https://github.com/tylrtnguyen/restaskest-rest-api" target="_blank">here</a></h3>
 
+
+### Credentials for testing our application
+1. Manager
+   - Email: **manager@restaskest.com**
+   - Password: **Testaccount1**
+2. Employee
+   - Email: **employee@restaskest.com**
+   - Password: **Testaccount2**
+
 ### Team: Plus 84
 | Team Member | Role |
 | ----------- | -----|
