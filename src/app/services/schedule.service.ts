@@ -8,7 +8,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms'
 export class ScheduleService {
 
   constructor(private http: HttpClient) { }
-  SERVER = 'https://restaskest-api.herokuapp.com/api/schedule';
+  SERVER = 'https://restaskest-api.ue.r.appspot.com/api/schedule';
   token = localStorage.getItem('token');
 
   formControl: FormGroup = new FormGroup({

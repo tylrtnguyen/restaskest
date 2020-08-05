@@ -9,7 +9,7 @@ export class InventoryService {
 
   constructor(private http: HttpClient) { }
 
-  SERVER = 'https://restaskest-api.herokuapp.com/api'
+  SERVER = 'https://restaskest-api.ue.r.appspot.com/api'
   token = localStorage.getItem('token')
 
   formControl: FormGroup = new FormGroup({

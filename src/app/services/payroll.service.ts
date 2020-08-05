@@ -16,7 +16,7 @@ import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
 export class PayrollService {
   constructor(private http: HttpClient) {}
 
-  SERVER = "https://restaskest-api.herokuapp.com/api/payroll";
+  SERVER = "https://restaskest-api.ue.r.appspot.com/api/payroll";
   token = localStorage.getItem('token');
 
 

@@ -11,7 +11,7 @@ export class ManagerService {
   constructor(private authService: AuthenticationService,
               private http: HttpClient) { }
 
-  SERVER = 'https://restaskest-api.herokuapp.com/api';
+  SERVER = 'https://restaskest-api.ue.r.appspot.com/api';
   token = localStorage.getItem('token');
   managerID = localStorage.getItem('userId');
 
